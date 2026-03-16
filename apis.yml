@@ -1,31 +1,48 @@
 aid: mastra
 name: Mastra
 description: >-
-  From the team that brought you Gatsby: prototype and productionize AI features
-  with a modern JavaScript stack. 
+  Mastra is an open-source TypeScript AI agent framework from the team that
+  built Gatsby. It enables developers to prototype and productionize AI features
+  using a modern JavaScript stack with tools for agents, workflows, RAG, and
+  integrations.
 type: Index
-position: Consumer
-access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - API
-created: '2026-01-02'
-modified: '2026-01-02'
+  - AI
+  - Agents
+  - TypeScript
+  - JavaScript
+  - Workflows
+  - RAG
 url: >-
   https://raw.githubusercontent.com/api-evangelist/mastra/refs/heads/main/apis.yml
+created: '2026-01-02'
+modified: '2026-03-16'
 specificationVersion: '0.19'
 apis:
   - aid: mastra:mastra
     name: Mastra
     description: >-
-      From the team that brought you Gatsby: prototype and productionize AI
-      features with a modern JavaScript stack. 
-    humanURL: ' https://mastra.ai/'
+      Mastra is an open-source TypeScript AI agent framework that enables
+      developers to build and deploy AI-powered applications with agents,
+      workflows, RAG pipelines, and third-party integrations.
+    humanURL: https://mastra.ai/
     tags:
-      - API
+      - AI
+      - Agents
+      - TypeScript
     properties:
       - type: Documentation
-        url: ' https://mastra.ai/'
+        url: https://mastra.ai/docs
+      - type: Getting Started
+        url: https://mastra.ai/docs/getting-started/installation
+common:
+  - type: Website
+    url: https://mastra.ai/
+  - type: GitHub Organization
+    url: https://github.com/mastra-ai
+  - type: Documentation
+    url: https://mastra.ai/docs
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
