@@ -8,12 +8,12 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - AI
   - Agents
-  - TypeScript
+  - AI
   - JavaScript
-  - Workflows
   - RAG
+  - TypeScript
+  - Workflows
 url: >-
   https://raw.githubusercontent.com/api-evangelist/mastra/refs/heads/main/apis.yml
 created: '2026-01-02'
@@ -28,8 +28,8 @@ apis:
       workflows, RAG pipelines, and third-party integrations.
     humanURL: https://mastra.ai/
     tags:
-      - AI
       - Agents
+      - AI
       - TypeScript
     properties:
       - type: Documentation
