@@ -34,12 +34,12 @@ apis:
     properties:
       - type: Documentation
         url: https://mastra.ai/docs
-      - type: Getting Started
+      - type: GettingStarted
         url: https://mastra.ai/docs/getting-started/installation
 common:
   - type: Website
     url: https://mastra.ai/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/mastra-ai
   - type: Documentation
     url: https://mastra.ai/docs
