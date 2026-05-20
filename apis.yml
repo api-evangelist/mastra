@@ -37,6 +37,8 @@ apis:
       - type: GettingStarted
         url: https://mastra.ai/docs/getting-started/installation
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/mastra-ai
   - type: Website
     url: https://mastra.ai/
   - type: GitHubOrganization
