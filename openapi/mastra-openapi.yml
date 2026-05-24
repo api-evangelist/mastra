@@ -1,0 +1,469 @@
+openapi: 3.1.0
+info:
+  title: Mastra Server REST API
+  version: v1
+  description: |
+    REST routes exposed by a Mastra server for agents, workflows, tools,
+    memory, vectors, MCP servers, the Responses API, the Conversations API,
+    and observability (logs and telemetry traces).
+  contact:
+    name: Mastra
+    url: https://mastra.ai
+servers:
+  - url: http://localhost:4111
+    description: Default local Mastra dev server
+  - url: https://{host}
+    description: Self-hosted or Mastra Cloud deployment
+    variables:
+      host:
+        default: your-mastra-host.example.com
+security:
+  - BearerAuth: []
+paths:
+  /api/agents:
+    get:
+      summary: List agents
+      operationId: listAgents
+      responses:
+        '200':
+          description: Array of agents.
+  /api/agents/{agentId}:
+    get:
+      summary: Get an agent
+      operationId: getAgent
+      parameters:
+        - $ref: '#/components/parameters/AgentId'
+      responses:
+        '200':
+          description: Agent details.
+  /api/agents/{agentId}/generate:
+    post:
+      summary: Generate a response from an agent
+      operationId: generateAgent
+      parameters:
+        - $ref: '#/components/parameters/AgentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messages:
+                  type: array
+                  items:
+                    type: object
+                threadId:
+                  type: string
+                resourceId:
+                  type: string
+      responses:
+        '200':
+          description: Generated response.
+  /api/agents/{agentId}/stream:
+    post:
+      summary: Stream a response from an agent
+      operationId: streamAgent
+      parameters:
+        - $ref: '#/components/parameters/AgentId'
+      responses:
+        '200':
+          description: Streaming response.
+  /api/agents/{agentId}/tools:
+    get:
+      summary: List tools available to an agent
+      operationId: listAgentTools
+      parameters:
+        - $ref: '#/components/parameters/AgentId'
+      responses:
+        '200':
+          description: Tool list.
+  /api/agents/{agentId}/tools/{toolId}/execute:
+    post:
+      summary: Execute a tool on behalf of an agent
+      operationId: executeAgentTool
+      parameters:
+        - $ref: '#/components/parameters/AgentId'
+        - $ref: '#/components/parameters/ToolId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Tool execution result.
+  /api/workflows:
+    get:
+      summary: List workflows
+      operationId: listWorkflows
+      responses:
+        '200':
+          description: Array of workflows.
+  /api/workflows/{workflowId}:
+    get:
+      summary: Get a workflow
+      operationId: getWorkflow
+      parameters:
+        - $ref: '#/components/parameters/WorkflowId'
+      responses:
+        '200':
+          description: Workflow details.
+  /api/workflows/{workflowId}/create-run:
+    post:
+      summary: Create a workflow run
+      operationId: createWorkflowRun
+      parameters:
+        - $ref: '#/components/parameters/WorkflowId'
+      responses:
+        '200':
+          description: Run identifier returned.
+  /api/workflows/{workflowId}/start-async:
+    post:
+      summary: Start a workflow and await its result
+      operationId: startWorkflowAsync
+      parameters:
+        - $ref: '#/components/parameters/WorkflowId'
+      responses:
+        '200':
+          description: Workflow result.
+  /api/workflows/{workflowId}/stream:
+    post:
+      summary: Stream a workflow execution
+      operationId: streamWorkflow
+      parameters:
+        - $ref: '#/components/parameters/WorkflowId'
+      responses:
+        '200':
+          description: Streaming response.
+  /api/workflows/{workflowId}/resume:
+    post:
+      summary: Resume a suspended workflow
+      operationId: resumeWorkflow
+      parameters:
+        - $ref: '#/components/parameters/WorkflowId'
+      responses:
+        '200':
+          description: Resume accepted.
+  /api/workflows/{workflowId}/runs:
+    get:
+      summary: List workflow runs
+      operationId: listWorkflowRuns
+      parameters:
+        - $ref: '#/components/parameters/WorkflowId'
+      responses:
+        '200':
+          description: Workflow runs.
+  /api/workflows/{workflowId}/runs/{runId}:
+    get:
+      summary: Get a workflow run
+      operationId: getWorkflowRun
+      parameters:
+        - $ref: '#/components/parameters/WorkflowId'
+        - in: path
+          name: runId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Workflow run details.
+  /api/tools:
+    get:
+      summary: List tools
+      operationId: listTools
+      responses:
+        '200':
+          description: Tools.
+  /api/tools/{toolId}:
+    get:
+      summary: Get a tool
+      operationId: getTool
+      parameters:
+        - $ref: '#/components/parameters/ToolId'
+      responses:
+        '200':
+          description: Tool details.
+  /api/tools/{toolId}/execute:
+    post:
+      summary: Execute a tool
+      operationId: executeTool
+      parameters:
+        - $ref: '#/components/parameters/ToolId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Execution result.
+  /api/memory/threads:
+    get:
+      summary: List memory threads
+      operationId: listMemoryThreads
+      responses:
+        '200':
+          description: Threads.
+    post:
+      summary: Create a memory thread
+      operationId: createMemoryThread
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Created.
+  /api/memory/threads/{threadId}:
+    get:
+      summary: Get a memory thread
+      operationId: getMemoryThread
+      parameters:
+        - $ref: '#/components/parameters/ThreadId'
+      responses:
+        '200':
+          description: Thread details.
+    delete:
+      summary: Delete a memory thread
+      operationId: deleteMemoryThread
+      parameters:
+        - $ref: '#/components/parameters/ThreadId'
+      responses:
+        '204':
+          description: Deleted.
+  /api/memory/threads/{threadId}/messages:
+    get:
+      summary: Get messages in a thread
+      operationId: getThreadMessages
+      parameters:
+        - $ref: '#/components/parameters/ThreadId'
+      responses:
+        '200':
+          description: Messages.
+    post:
+      summary: Add a message to a thread
+      operationId: addThreadMessage
+      parameters:
+        - $ref: '#/components/parameters/ThreadId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Message added.
+  /api/vectors/{vectorName}/upsert:
+    post:
+      summary: Upsert vectors
+      operationId: upsertVectors
+      parameters:
+        - $ref: '#/components/parameters/VectorName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Upserted.
+  /api/vectors/{vectorName}/query:
+    post:
+      summary: Query vectors
+      operationId: queryVectors
+      parameters:
+        - $ref: '#/components/parameters/VectorName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Query results.
+  /api/vectors/{vectorName}/delete:
+    post:
+      summary: Delete vectors
+      operationId: deleteVectors
+      parameters:
+        - $ref: '#/components/parameters/VectorName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Deleted.
+  /api/mcp/servers:
+    get:
+      summary: List MCP servers
+      operationId: listMcpServers
+      responses:
+        '200':
+          description: MCP servers.
+  /api/mcp/servers/{serverId}/tools:
+    get:
+      summary: List tools on an MCP server
+      operationId: listMcpServerTools
+      parameters:
+        - in: path
+          name: serverId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Tools.
+  /api/v1/responses:
+    post:
+      summary: Create a response (Responses API)
+      operationId: createResponse
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Response created.
+  /api/v1/responses/{responseId}:
+    get:
+      summary: Retrieve a response
+      operationId: getResponse
+      parameters:
+        - in: path
+          name: responseId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Response details.
+    delete:
+      summary: Delete a response
+      operationId: deleteResponse
+      parameters:
+        - in: path
+          name: responseId
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Deleted.
+  /api/v1/conversations:
+    post:
+      summary: Create a conversation (Conversations API)
+      operationId: createConversation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Conversation created.
+  /api/v1/conversations/{conversationId}:
+    get:
+      summary: Retrieve a conversation
+      operationId: getConversation
+      parameters:
+        - in: path
+          name: conversationId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Conversation details.
+  /api/v1/conversations/{conversationId}/items:
+    get:
+      summary: List items in a conversation
+      operationId: listConversationItems
+      parameters:
+        - in: path
+          name: conversationId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Items.
+  /api/logs:
+    get:
+      summary: List logs
+      operationId: listLogs
+      responses:
+        '200':
+          description: Logs.
+  /api/telemetry/traces:
+    get:
+      summary: List telemetry traces
+      operationId: listTraces
+      responses:
+        '200':
+          description: Traces.
+  /api/telemetry/traces/{traceId}:
+    get:
+      summary: Get a telemetry trace
+      operationId: getTrace
+      parameters:
+        - in: path
+          name: traceId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Trace details.
+components:
+  parameters:
+    AgentId:
+      in: path
+      name: agentId
+      required: true
+      schema:
+        type: string
+    WorkflowId:
+      in: path
+      name: workflowId
+      required: true
+      schema:
+        type: string
+    ToolId:
+      in: path
+      name: toolId
+      required: true
+      schema:
+        type: string
+    ThreadId:
+      in: path
+      name: threadId
+      required: true
+      schema:
+        type: string
+    VectorName:
+      in: path
+      name: vectorName
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: |
+        Mastra API key passed as `Authorization: Bearer {api_key}`.
+        Local dev servers may not require authentication.
