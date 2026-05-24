@@ -45,6 +45,8 @@ common:
     url: https://github.com/mastra-ai
   - type: Documentation
     url: https://mastra.ai/docs
+  - type: LLMsTxt
+    url: https://mastra.ai/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
