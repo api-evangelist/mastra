@@ -1,0 +1,662 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastra Server REST API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List agents",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/agents"
+      },
+      "docs": "List agents"
+    },
+    {
+      "info": {
+        "name": "Get an agent",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/agents/:agentId",
+        "params": [
+          {
+            "name": "agentId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get an agent"
+    },
+    {
+      "info": {
+        "name": "Generate a response from an agent",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/agents/:agentId/generate",
+        "params": [
+          {
+            "name": "agentId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Generate a response from an agent"
+    },
+    {
+      "info": {
+        "name": "Stream a response from an agent",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/agents/:agentId/stream",
+        "params": [
+          {
+            "name": "agentId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Stream a response from an agent"
+    },
+    {
+      "info": {
+        "name": "List tools available to an agent",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/agents/:agentId/tools",
+        "params": [
+          {
+            "name": "agentId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List tools available to an agent"
+    },
+    {
+      "info": {
+        "name": "Execute a tool on behalf of an agent",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/agents/:agentId/tools/:toolId/execute",
+        "params": [
+          {
+            "name": "agentId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "toolId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Execute a tool on behalf of an agent"
+    },
+    {
+      "info": {
+        "name": "List workflows",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/workflows"
+      },
+      "docs": "List workflows"
+    },
+    {
+      "info": {
+        "name": "Get a workflow",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/workflows/:workflowId",
+        "params": [
+          {
+            "name": "workflowId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get a workflow"
+    },
+    {
+      "info": {
+        "name": "Create a workflow run",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/workflows/:workflowId/create-run",
+        "params": [
+          {
+            "name": "workflowId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Create a workflow run"
+    },
+    {
+      "info": {
+        "name": "Start a workflow and await its result",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/workflows/:workflowId/start-async",
+        "params": [
+          {
+            "name": "workflowId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Start a workflow and await its result"
+    },
+    {
+      "info": {
+        "name": "Stream a workflow execution",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/workflows/:workflowId/stream",
+        "params": [
+          {
+            "name": "workflowId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Stream a workflow execution"
+    },
+    {
+      "info": {
+        "name": "Resume a suspended workflow",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/workflows/:workflowId/resume",
+        "params": [
+          {
+            "name": "workflowId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Resume a suspended workflow"
+    },
+    {
+      "info": {
+        "name": "List workflow runs",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/workflows/:workflowId/runs",
+        "params": [
+          {
+            "name": "workflowId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List workflow runs"
+    },
+    {
+      "info": {
+        "name": "Get a workflow run",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/workflows/:workflowId/runs/:runId",
+        "params": [
+          {
+            "name": "workflowId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "runId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get a workflow run"
+    },
+    {
+      "info": {
+        "name": "List tools",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/tools"
+      },
+      "docs": "List tools"
+    },
+    {
+      "info": {
+        "name": "Get a tool",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/tools/:toolId",
+        "params": [
+          {
+            "name": "toolId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get a tool"
+    },
+    {
+      "info": {
+        "name": "Execute a tool",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/tools/:toolId/execute",
+        "params": [
+          {
+            "name": "toolId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Execute a tool"
+    },
+    {
+      "info": {
+        "name": "List memory threads",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/memory/threads"
+      },
+      "docs": "List memory threads"
+    },
+    {
+      "info": {
+        "name": "Create a memory thread",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/memory/threads",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create a memory thread"
+    },
+    {
+      "info": {
+        "name": "Get a memory thread",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/memory/threads/:threadId",
+        "params": [
+          {
+            "name": "threadId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get a memory thread"
+    },
+    {
+      "info": {
+        "name": "Delete a memory thread",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://localhost:4111/api/memory/threads/:threadId",
+        "params": [
+          {
+            "name": "threadId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Delete a memory thread"
+    },
+    {
+      "info": {
+        "name": "Get messages in a thread",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/memory/threads/:threadId/messages",
+        "params": [
+          {
+            "name": "threadId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get messages in a thread"
+    },
+    {
+      "info": {
+        "name": "Add a message to a thread",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/memory/threads/:threadId/messages",
+        "params": [
+          {
+            "name": "threadId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Add a message to a thread"
+    },
+    {
+      "info": {
+        "name": "Upsert vectors",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/vectors/:vectorName/upsert",
+        "params": [
+          {
+            "name": "vectorName",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Upsert vectors"
+    },
+    {
+      "info": {
+        "name": "Query vectors",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/vectors/:vectorName/query",
+        "params": [
+          {
+            "name": "vectorName",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Query vectors"
+    },
+    {
+      "info": {
+        "name": "Delete vectors",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/vectors/:vectorName/delete",
+        "params": [
+          {
+            "name": "vectorName",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Delete vectors"
+    },
+    {
+      "info": {
+        "name": "List MCP servers",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/mcp/servers"
+      },
+      "docs": "List MCP servers"
+    },
+    {
+      "info": {
+        "name": "List tools on an MCP server",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/mcp/servers/:serverId/tools",
+        "params": [
+          {
+            "name": "serverId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List tools on an MCP server"
+    },
+    {
+      "info": {
+        "name": "Create a response (Responses API)",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/v1/responses",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create a response (Responses API)"
+    },
+    {
+      "info": {
+        "name": "Retrieve a response",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/v1/responses/:responseId",
+        "params": [
+          {
+            "name": "responseId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Retrieve a response"
+    },
+    {
+      "info": {
+        "name": "Delete a response",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://localhost:4111/api/v1/responses/:responseId",
+        "params": [
+          {
+            "name": "responseId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Delete a response"
+    },
+    {
+      "info": {
+        "name": "Create a conversation (Conversations API)",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:4111/api/v1/conversations",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create a conversation (Conversations API)"
+    },
+    {
+      "info": {
+        "name": "Retrieve a conversation",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/v1/conversations/:conversationId",
+        "params": [
+          {
+            "name": "conversationId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Retrieve a conversation"
+    },
+    {
+      "info": {
+        "name": "List items in a conversation",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/v1/conversations/:conversationId/items",
+        "params": [
+          {
+            "name": "conversationId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List items in a conversation"
+    },
+    {
+      "info": {
+        "name": "List logs",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/logs"
+      },
+      "docs": "List logs"
+    },
+    {
+      "info": {
+        "name": "List telemetry traces",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/telemetry/traces"
+      },
+      "docs": "List telemetry traces"
+    },
+    {
+      "info": {
+        "name": "Get a telemetry trace",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4111/api/telemetry/traces/:traceId",
+        "params": [
+          {
+            "name": "traceId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get a telemetry trace"
+    }
+  ],
+  "bundled": true
+}
