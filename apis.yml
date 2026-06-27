@@ -45,7 +45,7 @@ common:
     url: https://github.com/mastra-ai
   - type: Documentation
     url: https://mastra.ai/docs
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://mastra.ai/llms.txt
 maintainers:
   - FN: Kin Lane
