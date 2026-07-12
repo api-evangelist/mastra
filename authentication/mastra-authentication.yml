@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/mastra-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  description: |-
+    Mastra API key passed as `Authorization: Bearer {api_key}`.
+    Local dev servers may not require authentication.
+  sources:
+  - openapi/mastra-openapi.yml

@@ -37,6 +37,10 @@ apis:
       - type: GettingStarted
         url: https://mastra.ai/docs/getting-started/installation
 common:
+  - type: DomainSecurity
+    url: security/mastra-domain-security.yml
+  - type: Authentication
+    url: authentication/mastra-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/mastra-ai
   - type: Website
@@ -47,6 +51,8 @@ common:
     url: https://mastra.ai/docs
   - type: LlmsText
     url: https://mastra.ai/llms.txt
+  - url: https://mastra.ai/blog
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
