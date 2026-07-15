@@ -37,6 +37,8 @@ apis:
       - type: GettingStarted
         url: https://mastra.ai/docs/getting-started/installation
 common:
+  - type: AgenticAccess
+    url: agentic-access/mastra-agentic-access.yml
   - type: DomainSecurity
     url: security/mastra-domain-security.yml
   - type: Authentication
