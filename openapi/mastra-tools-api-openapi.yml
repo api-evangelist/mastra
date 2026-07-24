@@ -1,0 +1,81 @@
+openapi: 3.1.0
+info:
+  title: Mastra Server REST Agents Tools API
+  version: v1
+  description: 'REST routes exposed by a Mastra server for agents, workflows, tools,
+
+    memory, vectors, MCP servers, the Responses API, the Conversations API,
+
+    and observability (logs and telemetry traces).
+
+    '
+  contact:
+    name: Mastra
+    url: https://mastra.ai
+servers:
+- url: http://localhost:4111
+  description: Default local Mastra dev server
+- url: https://{host}
+  description: Self-hosted or Mastra Cloud deployment
+  variables:
+    host:
+      default: your-mastra-host.example.com
+security:
+- BearerAuth: []
+tags:
+- name: Tools
+paths:
+  /api/tools:
+    get:
+      summary: List tools
+      operationId: listTools
+      responses:
+        '200':
+          description: Tools.
+      tags:
+      - Tools
+  /api/tools/{toolId}:
+    get:
+      summary: Get a tool
+      operationId: getTool
+      parameters:
+      - $ref: '#/components/parameters/ToolId'
+      responses:
+        '200':
+          description: Tool details.
+      tags:
+      - Tools
+  /api/tools/{toolId}/execute:
+    post:
+      summary: Execute a tool
+      operationId: executeTool
+      parameters:
+      - $ref: '#/components/parameters/ToolId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Execution result.
+      tags:
+      - Tools
+components:
+  parameters:
+    ToolId:
+      in: path
+      name: toolId
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Mastra API key passed as `Authorization: Bearer {api_key}`.
+
+        Local dev servers may not require authentication.
+
+        '

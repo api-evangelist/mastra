@@ -1,0 +1,81 @@
+openapi: 3.1.0
+info:
+  title: Mastra Server REST Agents Responses API
+  version: v1
+  description: 'REST routes exposed by a Mastra server for agents, workflows, tools,
+
+    memory, vectors, MCP servers, the Responses API, the Conversations API,
+
+    and observability (logs and telemetry traces).
+
+    '
+  contact:
+    name: Mastra
+    url: https://mastra.ai
+servers:
+- url: http://localhost:4111
+  description: Default local Mastra dev server
+- url: https://{host}
+  description: Self-hosted or Mastra Cloud deployment
+  variables:
+    host:
+      default: your-mastra-host.example.com
+security:
+- BearerAuth: []
+tags:
+- name: Responses
+paths:
+  /api/v1/responses:
+    post:
+      summary: Create a response (Responses API)
+      operationId: createResponse
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Response created.
+      tags:
+      - Responses
+  /api/v1/responses/{responseId}:
+    get:
+      summary: Retrieve a response
+      operationId: getResponse
+      parameters:
+      - in: path
+        name: responseId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Response details.
+      tags:
+      - Responses
+    delete:
+      summary: Delete a response
+      operationId: deleteResponse
+      parameters:
+      - in: path
+        name: responseId
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Deleted.
+      tags:
+      - Responses
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Mastra API key passed as `Authorization: Bearer {api_key}`.
+
+        Local dev servers may not require authentication.
+
+        '

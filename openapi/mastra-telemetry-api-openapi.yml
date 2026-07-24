@@ -1,0 +1,61 @@
+openapi: 3.1.0
+info:
+  title: Mastra Server REST Agents Telemetry API
+  version: v1
+  description: 'REST routes exposed by a Mastra server for agents, workflows, tools,
+
+    memory, vectors, MCP servers, the Responses API, the Conversations API,
+
+    and observability (logs and telemetry traces).
+
+    '
+  contact:
+    name: Mastra
+    url: https://mastra.ai
+servers:
+- url: http://localhost:4111
+  description: Default local Mastra dev server
+- url: https://{host}
+  description: Self-hosted or Mastra Cloud deployment
+  variables:
+    host:
+      default: your-mastra-host.example.com
+security:
+- BearerAuth: []
+tags:
+- name: Telemetry
+paths:
+  /api/telemetry/traces:
+    get:
+      summary: List telemetry traces
+      operationId: listTraces
+      responses:
+        '200':
+          description: Traces.
+      tags:
+      - Telemetry
+  /api/telemetry/traces/{traceId}:
+    get:
+      summary: Get a telemetry trace
+      operationId: getTrace
+      parameters:
+      - in: path
+        name: traceId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Trace details.
+      tags:
+      - Telemetry
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Mastra API key passed as `Authorization: Bearer {api_key}`.
+
+        Local dev servers may not require authentication.
+
+        '

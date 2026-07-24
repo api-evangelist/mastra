@@ -1,0 +1,61 @@
+openapi: 3.1.0
+info:
+  title: Mastra Server REST Agents Mcp API
+  version: v1
+  description: 'REST routes exposed by a Mastra server for agents, workflows, tools,
+
+    memory, vectors, MCP servers, the Responses API, the Conversations API,
+
+    and observability (logs and telemetry traces).
+
+    '
+  contact:
+    name: Mastra
+    url: https://mastra.ai
+servers:
+- url: http://localhost:4111
+  description: Default local Mastra dev server
+- url: https://{host}
+  description: Self-hosted or Mastra Cloud deployment
+  variables:
+    host:
+      default: your-mastra-host.example.com
+security:
+- BearerAuth: []
+tags:
+- name: Mcp
+paths:
+  /api/mcp/servers:
+    get:
+      summary: List MCP servers
+      operationId: listMcpServers
+      responses:
+        '200':
+          description: MCP servers.
+      tags:
+      - Mcp
+  /api/mcp/servers/{serverId}/tools:
+    get:
+      summary: List tools on an MCP server
+      operationId: listMcpServerTools
+      parameters:
+      - in: path
+        name: serverId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Tools.
+      tags:
+      - Mcp
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Mastra API key passed as `Authorization: Bearer {api_key}`.
+
+        Local dev servers may not require authentication.
+
+        '

@@ -1,0 +1,82 @@
+openapi: 3.1.0
+info:
+  title: Mastra Server REST Agents Conversations API
+  version: v1
+  description: 'REST routes exposed by a Mastra server for agents, workflows, tools,
+
+    memory, vectors, MCP servers, the Responses API, the Conversations API,
+
+    and observability (logs and telemetry traces).
+
+    '
+  contact:
+    name: Mastra
+    url: https://mastra.ai
+servers:
+- url: http://localhost:4111
+  description: Default local Mastra dev server
+- url: https://{host}
+  description: Self-hosted or Mastra Cloud deployment
+  variables:
+    host:
+      default: your-mastra-host.example.com
+security:
+- BearerAuth: []
+tags:
+- name: Conversations
+paths:
+  /api/v1/conversations:
+    post:
+      summary: Create a conversation (Conversations API)
+      operationId: createConversation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Conversation created.
+      tags:
+      - Conversations
+  /api/v1/conversations/{conversationId}:
+    get:
+      summary: Retrieve a conversation
+      operationId: getConversation
+      parameters:
+      - in: path
+        name: conversationId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Conversation details.
+      tags:
+      - Conversations
+  /api/v1/conversations/{conversationId}/items:
+    get:
+      summary: List items in a conversation
+      operationId: listConversationItems
+      parameters:
+      - in: path
+        name: conversationId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Items.
+      tags:
+      - Conversations
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Mastra API key passed as `Authorization: Bearer {api_key}`.
+
+        Local dev servers may not require authentication.
+
+        '

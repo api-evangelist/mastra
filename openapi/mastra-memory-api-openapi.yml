@@ -1,0 +1,115 @@
+openapi: 3.1.0
+info:
+  title: Mastra Server REST Agents Memory API
+  version: v1
+  description: 'REST routes exposed by a Mastra server for agents, workflows, tools,
+
+    memory, vectors, MCP servers, the Responses API, the Conversations API,
+
+    and observability (logs and telemetry traces).
+
+    '
+  contact:
+    name: Mastra
+    url: https://mastra.ai
+servers:
+- url: http://localhost:4111
+  description: Default local Mastra dev server
+- url: https://{host}
+  description: Self-hosted or Mastra Cloud deployment
+  variables:
+    host:
+      default: your-mastra-host.example.com
+security:
+- BearerAuth: []
+tags:
+- name: Memory
+paths:
+  /api/memory/threads:
+    get:
+      summary: List memory threads
+      operationId: listMemoryThreads
+      responses:
+        '200':
+          description: Threads.
+      tags:
+      - Memory
+    post:
+      summary: Create a memory thread
+      operationId: createMemoryThread
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Created.
+      tags:
+      - Memory
+  /api/memory/threads/{threadId}:
+    get:
+      summary: Get a memory thread
+      operationId: getMemoryThread
+      parameters:
+      - $ref: '#/components/parameters/ThreadId'
+      responses:
+        '200':
+          description: Thread details.
+      tags:
+      - Memory
+    delete:
+      summary: Delete a memory thread
+      operationId: deleteMemoryThread
+      parameters:
+      - $ref: '#/components/parameters/ThreadId'
+      responses:
+        '204':
+          description: Deleted.
+      tags:
+      - Memory
+  /api/memory/threads/{threadId}/messages:
+    get:
+      summary: Get messages in a thread
+      operationId: getThreadMessages
+      parameters:
+      - $ref: '#/components/parameters/ThreadId'
+      responses:
+        '200':
+          description: Messages.
+      tags:
+      - Memory
+    post:
+      summary: Add a message to a thread
+      operationId: addThreadMessage
+      parameters:
+      - $ref: '#/components/parameters/ThreadId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Message added.
+      tags:
+      - Memory
+components:
+  parameters:
+    ThreadId:
+      in: path
+      name: threadId
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Mastra API key passed as `Authorization: Bearer {api_key}`.
+
+        Local dev servers may not require authentication.
+
+        '

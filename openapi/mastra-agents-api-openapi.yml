@@ -1,0 +1,136 @@
+openapi: 3.1.0
+info:
+  title: Mastra Server REST Agents API
+  version: v1
+  description: 'REST routes exposed by a Mastra server for agents, workflows, tools,
+
+    memory, vectors, MCP servers, the Responses API, the Conversations API,
+
+    and observability (logs and telemetry traces).
+
+    '
+  contact:
+    name: Mastra
+    url: https://mastra.ai
+servers:
+- url: http://localhost:4111
+  description: Default local Mastra dev server
+- url: https://{host}
+  description: Self-hosted or Mastra Cloud deployment
+  variables:
+    host:
+      default: your-mastra-host.example.com
+security:
+- BearerAuth: []
+tags:
+- name: Agents
+paths:
+  /api/agents:
+    get:
+      summary: List agents
+      operationId: listAgents
+      responses:
+        '200':
+          description: Array of agents.
+      tags:
+      - Agents
+  /api/agents/{agentId}:
+    get:
+      summary: Get an agent
+      operationId: getAgent
+      parameters:
+      - $ref: '#/components/parameters/AgentId'
+      responses:
+        '200':
+          description: Agent details.
+      tags:
+      - Agents
+  /api/agents/{agentId}/generate:
+    post:
+      summary: Generate a response from an agent
+      operationId: generateAgent
+      parameters:
+      - $ref: '#/components/parameters/AgentId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                messages:
+                  type: array
+                  items:
+                    type: object
+                threadId:
+                  type: string
+                resourceId:
+                  type: string
+      responses:
+        '200':
+          description: Generated response.
+      tags:
+      - Agents
+  /api/agents/{agentId}/stream:
+    post:
+      summary: Stream a response from an agent
+      operationId: streamAgent
+      parameters:
+      - $ref: '#/components/parameters/AgentId'
+      responses:
+        '200':
+          description: Streaming response.
+      tags:
+      - Agents
+  /api/agents/{agentId}/tools:
+    get:
+      summary: List tools available to an agent
+      operationId: listAgentTools
+      parameters:
+      - $ref: '#/components/parameters/AgentId'
+      responses:
+        '200':
+          description: Tool list.
+      tags:
+      - Agents
+  /api/agents/{agentId}/tools/{toolId}/execute:
+    post:
+      summary: Execute a tool on behalf of an agent
+      operationId: executeAgentTool
+      parameters:
+      - $ref: '#/components/parameters/AgentId'
+      - $ref: '#/components/parameters/ToolId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Tool execution result.
+      tags:
+      - Agents
+components:
+  parameters:
+    AgentId:
+      in: path
+      name: agentId
+      required: true
+      schema:
+        type: string
+    ToolId:
+      in: path
+      name: toolId
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Mastra API key passed as `Authorization: Bearer {api_key}`.
+
+        Local dev servers may not require authentication.
+
+        '

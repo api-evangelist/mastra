@@ -1,0 +1,135 @@
+openapi: 3.1.0
+info:
+  title: Mastra Server REST Agents Workflows API
+  version: v1
+  description: 'REST routes exposed by a Mastra server for agents, workflows, tools,
+
+    memory, vectors, MCP servers, the Responses API, the Conversations API,
+
+    and observability (logs and telemetry traces).
+
+    '
+  contact:
+    name: Mastra
+    url: https://mastra.ai
+servers:
+- url: http://localhost:4111
+  description: Default local Mastra dev server
+- url: https://{host}
+  description: Self-hosted or Mastra Cloud deployment
+  variables:
+    host:
+      default: your-mastra-host.example.com
+security:
+- BearerAuth: []
+tags:
+- name: Workflows
+paths:
+  /api/workflows:
+    get:
+      summary: List workflows
+      operationId: listWorkflows
+      responses:
+        '200':
+          description: Array of workflows.
+      tags:
+      - Workflows
+  /api/workflows/{workflowId}:
+    get:
+      summary: Get a workflow
+      operationId: getWorkflow
+      parameters:
+      - $ref: '#/components/parameters/WorkflowId'
+      responses:
+        '200':
+          description: Workflow details.
+      tags:
+      - Workflows
+  /api/workflows/{workflowId}/create-run:
+    post:
+      summary: Create a workflow run
+      operationId: createWorkflowRun
+      parameters:
+      - $ref: '#/components/parameters/WorkflowId'
+      responses:
+        '200':
+          description: Run identifier returned.
+      tags:
+      - Workflows
+  /api/workflows/{workflowId}/start-async:
+    post:
+      summary: Start a workflow and await its result
+      operationId: startWorkflowAsync
+      parameters:
+      - $ref: '#/components/parameters/WorkflowId'
+      responses:
+        '200':
+          description: Workflow result.
+      tags:
+      - Workflows
+  /api/workflows/{workflowId}/stream:
+    post:
+      summary: Stream a workflow execution
+      operationId: streamWorkflow
+      parameters:
+      - $ref: '#/components/parameters/WorkflowId'
+      responses:
+        '200':
+          description: Streaming response.
+      tags:
+      - Workflows
+  /api/workflows/{workflowId}/resume:
+    post:
+      summary: Resume a suspended workflow
+      operationId: resumeWorkflow
+      parameters:
+      - $ref: '#/components/parameters/WorkflowId'
+      responses:
+        '200':
+          description: Resume accepted.
+      tags:
+      - Workflows
+  /api/workflows/{workflowId}/runs:
+    get:
+      summary: List workflow runs
+      operationId: listWorkflowRuns
+      parameters:
+      - $ref: '#/components/parameters/WorkflowId'
+      responses:
+        '200':
+          description: Workflow runs.
+      tags:
+      - Workflows
+  /api/workflows/{workflowId}/runs/{runId}:
+    get:
+      summary: Get a workflow run
+      operationId: getWorkflowRun
+      parameters:
+      - $ref: '#/components/parameters/WorkflowId'
+      - in: path
+        name: runId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Workflow run details.
+      tags:
+      - Workflows
+components:
+  parameters:
+    WorkflowId:
+      in: path
+      name: workflowId
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Mastra API key passed as `Authorization: Bearer {api_key}`.
+
+        Local dev servers may not require authentication.
+
+        '
