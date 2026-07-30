@@ -6,7 +6,20 @@ description: >-
   using a modern JavaScript stack with tools for agents, workflows, RAG, and
   integrations.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/mastra.png
 tags:
   - Agents
   - AI
@@ -20,22 +33,111 @@ created: '2026-01-02'
 modified: '2026-04-28'
 specificationVersion: '0.19'
 apis:
-  - aid: mastra:mastra
-    name: Mastra
-    description: >-
-      Mastra is an open-source TypeScript AI agent framework that enables
-      developers to build and deploy AI-powered applications with agents,
-      workflows, RAG pipelines, and third-party integrations.
-    humanURL: https://mastra.ai/
-    tags:
-      - Agents
-      - AI
-      - TypeScript
-    properties:
-      - type: Documentation
-        url: https://mastra.ai/docs
-      - type: GettingStarted
-        url: https://mastra.ai/docs/getting-started/installation
+- aid: mastra:mastra
+  name: Mastra
+  description: >-
+    Mastra is an open-source TypeScript AI agent framework that enables developers to build and deploy
+    AI-powered applications with agents, workflows, RAG pipelines, and third-party integrations.
+  humanURL: https://mastra.ai/
+  tags:
+  - Agents
+  - AI
+  - TypeScript
+  properties:
+  - type: Documentation
+    url: https://mastra.ai/docs
+  - type: GettingStarted
+    url: https://mastra.ai/docs/getting-started/installation
+- aid: mastra:mastra-agents-api
+  name: Mastra Agents API
+  description: The Agents API from Mastra — 6 operation(s) for agents.
+  humanURL: https://mastra.ai/
+  tags:
+  - Agents
+  properties:
+  - type: OpenAPI
+    url: openapi/mastra-agents-api-openapi.yml
+- aid: mastra:mastra-conversations-api
+  name: Mastra Conversations API
+  description: The Conversations API from Mastra — 3 operation(s) for conversations.
+  humanURL: https://mastra.ai/
+  tags:
+  - Conversations
+  properties:
+  - type: OpenAPI
+    url: openapi/mastra-conversations-api-openapi.yml
+- aid: mastra:mastra-logs-api
+  name: Mastra Logs API
+  description: The Logs API from Mastra — 1 operation(s) for logs.
+  humanURL: https://mastra.ai/
+  tags:
+  - Logs
+  properties:
+  - type: OpenAPI
+    url: openapi/mastra-logs-api-openapi.yml
+- aid: mastra:mastra-mcp-api
+  name: Mastra Mcp API
+  description: The Mcp API from Mastra — 2 operation(s) for mcp.
+  humanURL: https://mastra.ai/
+  tags:
+  - Mcp
+  properties:
+  - type: OpenAPI
+    url: openapi/mastra-mcp-api-openapi.yml
+- aid: mastra:mastra-memory-api
+  name: Mastra Memory API
+  description: The Memory API from Mastra — 3 operation(s) for memory.
+  humanURL: https://mastra.ai/
+  tags:
+  - Memory
+  properties:
+  - type: OpenAPI
+    url: openapi/mastra-memory-api-openapi.yml
+- aid: mastra:mastra-responses-api
+  name: Mastra Responses API
+  description: The Responses API from Mastra — 2 operation(s) for responses.
+  humanURL: https://mastra.ai/
+  tags:
+  - Responses
+  properties:
+  - type: OpenAPI
+    url: openapi/mastra-responses-api-openapi.yml
+- aid: mastra:mastra-telemetry-api
+  name: Mastra Telemetry API
+  description: The Telemetry API from Mastra — 2 operation(s) for telemetry.
+  humanURL: https://mastra.ai/
+  tags:
+  - Telemetry
+  properties:
+  - type: OpenAPI
+    url: openapi/mastra-telemetry-api-openapi.yml
+- aid: mastra:mastra-tools-api
+  name: Mastra Tools API
+  description: The Tools API from Mastra — 3 operation(s) for tools.
+  humanURL: https://mastra.ai/
+  tags:
+  - Tools
+  properties:
+  - type: OpenAPI
+    url: openapi/mastra-tools-api-openapi.yml
+- aid: mastra:mastra-vectors-api
+  name: Mastra Vectors API
+  description: The Vectors API from Mastra — 3 operation(s) for vectors.
+  humanURL: https://mastra.ai/
+  tags:
+  - Vectors
+  properties:
+  - type: OpenAPI
+    url: openapi/mastra-vectors-api-openapi.yml
+- aid: mastra:mastra-workflows-api
+  name: Mastra Workflows API
+  description: The Workflows API from Mastra — 8 operation(s) for workflows.
+  humanURL: https://mastra.ai/
+  tags:
+  - Workflows
+  properties:
+  - type: OpenAPI
+    url: openapi/mastra-workflows-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/mastra-agentic-access.yml
