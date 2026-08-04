@@ -1,0 +1,32 @@
+{
+  "provider": "mastra",
+  "sources": [
+    "mastra-agents-api-openapi.yml",
+    "mastra-conversations-api-openapi.yml",
+    "mastra-logs-api-openapi.yml",
+    "mastra-mcp-api-openapi.yml",
+    "mastra-memory-api-openapi.yml",
+    "mastra-responses-api-openapi.yml",
+    "mastra-telemetry-api-openapi.yml",
+    "mastra-tools-api-openapi.yml",
+    "mastra-vectors-api-openapi.yml",
+    "mastra-workflows-api-openapi.yml"
+  ],
+  "outputs": [
+    "mastra-agents-api-openapi.yml",
+    "mastra-conversations-api-openapi.yml",
+    "mastra-logs-api-openapi.yml",
+    "mastra-mcp-api-openapi.yml",
+    "mastra-memory-api-openapi.yml",
+    "mastra-responses-api-openapi.yml",
+    "mastra-telemetry-api-openapi.yml",
+    "mastra-tools-api-openapi.yml",
+    "mastra-vectors-api-openapi.yml",
+    "mastra-workflows-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
