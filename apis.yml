@@ -1,10 +1,8 @@
 aid: mastra
 name: Mastra
-description: >-
-  Mastra is an open-source TypeScript AI agent framework from the team that
-  built Gatsby. It enables developers to prototype and productionize AI features
-  using a modern JavaScript stack with tools for agents, workflows, RAG, and
-  integrations.
+description: Mastra is an open-source TypeScript AI agent framework from the team that built Gatsby. It
+  enables developers to prototype and productionize AI features using a modern JavaScript stack with tools
+  for agents, workflows, RAG, and integrations.
 type: Index
 accessModel:
   pricing: freemium
@@ -21,23 +19,21 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/mastra.png
 tags:
-  - Agents
-  - AI
-  - JavaScript
-  - RAG
-  - TypeScript
-  - Workflows
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/mastra/refs/heads/main/apis.yml
+- Agents
+- AI
+- JavaScript
+- RAG
+- TypeScript
+- Workflows
+url: https://raw.githubusercontent.com/api-evangelist/mastra/refs/heads/main/apis.yml
 created: '2026-01-02'
-modified: '2026-04-28'
+modified: '2026-08-08'
 specificationVersion: '0.19'
 apis:
 - aid: mastra:mastra
   name: Mastra
-  description: >-
-    Mastra is an open-source TypeScript AI agent framework that enables developers to build and deploy
-    AI-powered applications with agents, workflows, RAG pipelines, and third-party integrations.
+  description: Mastra is an open-source TypeScript AI agent framework that enables developers to build
+    and deploy AI-powered applications with agents, workflows, RAG pipelines, and third-party integrations.
   humanURL: https://mastra.ai/
   tags:
   - Agents
@@ -139,24 +135,65 @@ apis:
   - type: OpenAPI
     url: openapi/mastra-workflows-api-openapi.yml
 common:
-  - type: AgenticAccess
-    url: agentic-access/mastra-agentic-access.yml
-  - type: DomainSecurity
-    url: security/mastra-domain-security.yml
-  - type: Authentication
-    url: authentication/mastra-authentication.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/mastra-ai
-  - type: Website
-    url: https://mastra.ai/
-  - type: GitHubOrganization
-    url: https://github.com/mastra-ai
-  - type: Documentation
-    url: https://mastra.ai/docs
-  - type: LlmsText
-    url: https://mastra.ai/llms.txt
-  - url: https://mastra.ai/blog
-    type: Blog
+- type: AgenticAccess
+  url: agentic-access/mastra-agentic-access.yml
+- type: DomainSecurity
+  url: security/mastra-domain-security.yml
+- type: Authentication
+  url: authentication/mastra-authentication.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/mastra-ai
+- type: Website
+  url: https://mastra.ai/
+- type: GitHubOrganization
+  url: https://github.com/mastra-ai
+- type: Documentation
+  url: https://mastra.ai/docs
+- type: LlmsText
+  url: https://mastra.ai/llms.txt
+- url: https://mastra.ai/blog
+  type: Blog
+- type: GitHub
+  url: https://github.com/mastra-ai/mastra
+- type: GitHubOrg
+  url: https://github.com/mastra-ai
+- type: ChangeLog
+  url: https://github.com/mastra-ai/mastra/releases
+  name: GitHub Releases
+- type: Pricing
+  url: https://mastra.ai/pricing
+- type: PackageManager
+  url: https://www.npmjs.com/org/mastra
+  name: npm @mastra Org
+- type: Examples
+  url: https://github.com/mastra-ai/mastra/tree/main/examples
+- type: Templates
+  url: https://mastra.ai/templates
+- type: Community
+  url: https://discord.gg/BTYqqHKUrf
+  name: Discord
+- type: XTwitter
+  url: https://x.com/mastra_ai
+- type: YouTube
+  url: https://www.youtube.com/@mastra-ai
+- type: Course
+  url: https://mastra.ai/course
+  name: Mastra MCP Course
+- type: Book
+  url: https://mastra.ai/book
+  name: Principles of Building AI Agents
+- type: Podcast
+  url: https://mastra.ai/agent-hour
+  name: Agent Hour
+- type: License
+  url: https://github.com/mastra-ai/mastra/blob/main/LICENSE.md
+  name: Apache 2.0 + Mastra Enterprise License
+- type: YCombinator
+  url: https://www.ycombinator.com/companies/mastra
+- type: Crunchbase
+  url: https://www.crunchbase.com/organization/mastra-44ba
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-merged-from:
+- mastra-ai
