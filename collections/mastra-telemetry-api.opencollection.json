@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastra Server REST Agents Telemetry API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Telemetry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List telemetry traces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/telemetry/traces"
+          },
+          "docs": "List telemetry traces"
+        },
+        {
+          "info": {
+            "name": "Get a telemetry trace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/telemetry/traces/:traceId",
+            "params": [
+              {
+                "name": "traceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a telemetry trace"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

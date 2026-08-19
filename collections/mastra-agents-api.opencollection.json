@@ -1,0 +1,138 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastra Server REST Agents API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Agents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/agents"
+          },
+          "docs": "List agents"
+        },
+        {
+          "info": {
+            "name": "Get an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/agents/:agentId",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an agent"
+        },
+        {
+          "info": {
+            "name": "Generate a response from an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:4111/api/agents/:agentId/generate",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate a response from an agent"
+        },
+        {
+          "info": {
+            "name": "Stream a response from an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:4111/api/agents/:agentId/stream",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stream a response from an agent"
+        },
+        {
+          "info": {
+            "name": "List tools available to an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/agents/:agentId/tools",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List tools available to an agent"
+        },
+        {
+          "info": {
+            "name": "Execute a tool on behalf of an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:4111/api/agents/:agentId/tools/:toolId/execute",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "toolId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute a tool on behalf of an agent"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

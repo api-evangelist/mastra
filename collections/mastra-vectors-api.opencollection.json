@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastra Server REST Agents Vectors API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vectors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upsert vectors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:4111/api/vectors/:vectorName/upsert",
+            "params": [
+              {
+                "name": "vectorName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upsert vectors"
+        },
+        {
+          "info": {
+            "name": "Query vectors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:4111/api/vectors/:vectorName/query",
+            "params": [
+              {
+                "name": "vectorName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query vectors"
+        },
+        {
+          "info": {
+            "name": "Delete vectors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:4111/api/vectors/:vectorName/delete",
+            "params": [
+              {
+                "name": "vectorName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete vectors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

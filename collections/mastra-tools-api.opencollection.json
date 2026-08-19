@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastra Server REST Agents Tools API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tools",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tools",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/tools"
+          },
+          "docs": "List tools"
+        },
+        {
+          "info": {
+            "name": "Get a tool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/tools/:toolId",
+            "params": [
+              {
+                "name": "toolId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a tool"
+        },
+        {
+          "info": {
+            "name": "Execute a tool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:4111/api/tools/:toolId/execute",
+            "params": [
+              {
+                "name": "toolId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute a tool"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

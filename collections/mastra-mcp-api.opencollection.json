@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastra Server REST Agents Mcp API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Mcp",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List MCP servers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/mcp/servers"
+          },
+          "docs": "List MCP servers"
+        },
+        {
+          "info": {
+            "name": "List tools on an MCP server",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/mcp/servers/:serverId/tools",
+            "params": [
+              {
+                "name": "serverId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List tools on an MCP server"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

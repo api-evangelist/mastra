@@ -1,0 +1,166 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastra Server REST Agents Workflows API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workflows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List workflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/workflows"
+          },
+          "docs": "List workflows"
+        },
+        {
+          "info": {
+            "name": "Get a workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/workflows/:workflowId",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a workflow"
+        },
+        {
+          "info": {
+            "name": "Create a workflow run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:4111/api/workflows/:workflowId/create-run",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create a workflow run"
+        },
+        {
+          "info": {
+            "name": "Start a workflow and await its result",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:4111/api/workflows/:workflowId/start-async",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Start a workflow and await its result"
+        },
+        {
+          "info": {
+            "name": "Stream a workflow execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:4111/api/workflows/:workflowId/stream",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stream a workflow execution"
+        },
+        {
+          "info": {
+            "name": "Resume a suspended workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:4111/api/workflows/:workflowId/resume",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Resume a suspended workflow"
+        },
+        {
+          "info": {
+            "name": "List workflow runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/workflows/:workflowId/runs",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List workflow runs"
+        },
+        {
+          "info": {
+            "name": "Get a workflow run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/workflows/:workflowId/runs/:runId",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "runId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a workflow run"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

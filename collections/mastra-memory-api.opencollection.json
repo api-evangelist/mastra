@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mastra Server REST Agents Memory API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Memory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List memory threads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/memory/threads"
+          },
+          "docs": "List memory threads"
+        },
+        {
+          "info": {
+            "name": "Create a memory thread",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:4111/api/memory/threads",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a memory thread"
+        },
+        {
+          "info": {
+            "name": "Get a memory thread",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/memory/threads/:threadId",
+            "params": [
+              {
+                "name": "threadId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a memory thread"
+        },
+        {
+          "info": {
+            "name": "Delete a memory thread",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:4111/api/memory/threads/:threadId",
+            "params": [
+              {
+                "name": "threadId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a memory thread"
+        },
+        {
+          "info": {
+            "name": "Get messages in a thread",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4111/api/memory/threads/:threadId/messages",
+            "params": [
+              {
+                "name": "threadId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get messages in a thread"
+        },
+        {
+          "info": {
+            "name": "Add a message to a thread",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:4111/api/memory/threads/:threadId/messages",
+            "params": [
+              {
+                "name": "threadId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a message to a thread"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
