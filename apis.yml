@@ -20,6 +20,13 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/mastra.png
 tags:
 - Agents
+- Artificial Intelligence
+- JavaScript
+- RAG
+- TypeScript
+- Workflows
+tags_raw:
+- Agents
 - AI
 - JavaScript
 - RAG
@@ -36,6 +43,10 @@ apis:
     and deploy AI-powered applications with agents, workflows, RAG pipelines, and third-party integrations.
   humanURL: https://mastra.ai/
   tags:
+  - Agents
+  - Artificial Intelligence
+  - TypeScript
+  tags_raw:
   - Agents
   - AI
   - TypeScript
@@ -76,6 +87,8 @@ apis:
   description: The Mcp API from Mastra — 2 operation(s) for mcp.
   humanURL: https://mastra.ai/
   tags:
+  - MCP
+  tags_raw:
   - Mcp
   properties:
   - type: OpenAPI
