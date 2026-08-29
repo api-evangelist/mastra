@@ -4,6 +4,20 @@ description: Mastra is an open-source TypeScript AI agent framework from the tea
   enables developers to prototype and productionize AI features using a modern JavaScript stack with tools
   for agents, workflows, RAG, and integrations.
 type: Index
+deliveryModel:
+  model: saas
+  license: Apache 2.0 + Mastra Enterprise License
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
