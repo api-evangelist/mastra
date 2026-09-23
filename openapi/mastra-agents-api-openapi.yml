@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Mastra Server REST Agents API
   version: v1
@@ -6,9 +6,7 @@ info:
 
     memory, vectors, MCP servers, the Responses API, the Conversations API,
 
-    and observability (logs and telemetry traces).
-
-    '
+    and observability (logs and telemetry traces).'
   contact:
     name: Mastra
     url: https://mastra.ai

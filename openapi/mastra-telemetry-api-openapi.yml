@@ -1,14 +1,12 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Mastra Server REST Agents Telemetry API
+  title: Mastra Server REST Telemetry API
   version: v1
   description: 'REST routes exposed by a Mastra server for agents, workflows, tools,
 
     memory, vectors, MCP servers, the Responses API, the Conversations API,
 
-    and observability (logs and telemetry traces).
-
-    '
+    and observability (logs and telemetry traces).'
   contact:
     name: Mastra
     url: https://mastra.ai
