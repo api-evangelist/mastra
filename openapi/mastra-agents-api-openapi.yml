@@ -111,15 +111,15 @@ paths:
       - Agents
 components:
   parameters:
-    AgentId:
-      in: path
-      name: agentId
-      required: true
-      schema:
-        type: string
     ToolId:
       in: path
       name: toolId
+      required: true
+      schema:
+        type: string
+    AgentId:
+      in: path
+      name: agentId
       required: true
       schema:
         type: string
