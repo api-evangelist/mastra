@@ -163,6 +163,9 @@ apis:
   - type: OpenAPI
     url: openapi/mastra-workflows-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/mastra-capability-edges.yml
+  name: Mastra Business Capability Map
 - type: AgenticAccess
   url: agentic-access/mastra-agentic-access.yml
 - type: DomainSecurity
