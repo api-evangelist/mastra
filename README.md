@@ -1,4 +1,4 @@
-# Mastra (mastra)
+# Mastra
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,56 +66,137 @@
 
 Mastra is an open-source TypeScript AI agent framework from the team that built Gatsby. It enables developers to prototype and productionize AI features using a modern JavaScript stack with tools for agents, workflows, RAG, and integrations.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/mastra/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/mastra/refs/heads/main/apis.yml)
+**Areas:** Agents · Artificial Intelligence · JavaScript · RAG · TypeScript · Workflows
 
-## Scope
+## Mastra on APIs.io
 
-- **Type:** Index
+Everything profiled for Mastra is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/mastra/](https://apis.io/providers/mastra/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (11)
 
-- Agents
-- AI
-- JavaScript
-- RAG
-- TypeScript
-- Workflows
+- [Mastra](https://apis.io/apis/mastra/mastra/) — Mastra is an open-source TypeScript AI agent framework that enables developers to build and deploy AI-powered applications with agents, workflows, RAG…
+- [Mastra Agents API](https://apis.io/apis/mastra/mastra-agents-api/) — The Agents API from Mastra — 6 operation(s) for agents.
+- [Mastra Conversations API](https://apis.io/apis/mastra/mastra-conversations-api/) — The Conversations API from Mastra — 3 operation(s) for conversations.
+- [Mastra Logs API](https://apis.io/apis/mastra/mastra-logs-api/) — The Logs API from Mastra — 1 operation(s) for logs.
+- [Mastra Mcp API](https://apis.io/apis/mastra/mastra-mcp-api/) — The Mcp API from Mastra — 2 operation(s) for mcp.
+- [Mastra Memory API](https://apis.io/apis/mastra/mastra-memory-api/) — The Memory API from Mastra — 3 operation(s) for memory.
+- [Mastra Responses API](https://apis.io/apis/mastra/mastra-responses-api/) — The Responses API from Mastra — 2 operation(s) for responses.
+- [Mastra Telemetry API](https://apis.io/apis/mastra/mastra-telemetry-api/) — The Telemetry API from Mastra — 2 operation(s) for telemetry.
+- [Mastra Tools API](https://apis.io/apis/mastra/mastra-tools-api/) — The Tools API from Mastra — 3 operation(s) for tools.
+- [Mastra Vectors API](https://apis.io/apis/mastra/mastra-vectors-api/) — The Vectors API from Mastra — 3 operation(s) for vectors.
+- [Mastra Workflows API](https://apis.io/apis/mastra/mastra-workflows-api/) — The Workflows API from Mastra — 8 operation(s) for workflows.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-01-02
-- **Modified:** 2026-04-28
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Mastra
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Mastra is an open-source TypeScript AI agent framework that enables developers to build and deploy AI-powered applications with agents, workflows, RAG pipelines, and third-party integrations.
+- [Mastra Agentic Access](https://apis.io/agentic-access/mastra/mastra-agentic-access/)
 
-- **Human URL:** [https://mastra.ai/](https://mastra.ai/)
+#### Collections (11)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Agents
-- AI
-- TypeScript
+- [Mastra Server REST API](https://apis.io/collections/mastra/open-mastra/)
+- [Mastra Server REST Agents API](https://apis.io/collections/mastra/open-mastra-agents-api/)
+- [Mastra Server REST Agents Conversations API](https://apis.io/collections/mastra/open-mastra-conversations-api/)
+- [Mastra Server REST Agents Logs API](https://apis.io/collections/mastra/open-mastra-logs-api/)
+- [Mastra Server REST Agents Mcp API](https://apis.io/collections/mastra/open-mastra-mcp-api/)
+- [Mastra Server REST Agents Memory API](https://apis.io/collections/mastra/open-mastra-memory-api/)
+- [Mastra Server REST Agents Responses API](https://apis.io/collections/mastra/open-mastra-responses-api/)
+- [Mastra Server REST Agents Telemetry API](https://apis.io/collections/mastra/open-mastra-telemetry-api/)
+- [Mastra Server REST Agents Tools API](https://apis.io/collections/mastra/open-mastra-tools-api/)
+- [Mastra Server REST Agents Vectors API](https://apis.io/collections/mastra/open-mastra-vectors-api/)
+- [Mastra Server REST Agents Workflows API](https://apis.io/collections/mastra/open-mastra-workflows-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://mastra.ai/docs)
-- [Getting Started](https://mastra.ai/docs/getting-started/installation)
-- [Postman Collection](collections/mastra.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mastra.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Mastra Authentication](https://apis.io/security/mastra/mastra-authentication/)
+- [Mastra Domain Security](https://apis.io/security/mastra/mastra-domain-security/)
 
-- [LinkedIn](https://www.linkedin.com/company/mastra-ai)
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Mastra Plans Pricing](https://apis.io/plans/mastra/mastra-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Mastra Rate Limits](https://apis.io/rate-limits/mastra/mastra-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Mastra Finops](https://apis.io/finops/mastra/mastra-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://mastra.ai/)
-- [GitHub Organization](https://github.com/mastra-ai)
 - [Documentation](https://mastra.ai/docs)
-- [L L Ms Txt](https://mastra.ai/llms.txt)
+- [Pricing](https://mastra.ai/pricing)
+- [Changelog](https://github.com/mastra-ai/mastra/releases)
+- [Blog](https://mastra.ai/blog)
+- [GitHub](https://github.com/mastra-ai)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 37.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 43.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 38.1 |
+| Access clarity | 42.1 |
+
+**Agent readiness 19.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/mastra/](https://apis.io/providers/mastra/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Mastra: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/mastra/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
